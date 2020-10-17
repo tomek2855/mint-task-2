@@ -1,0 +1,6 @@
+{% set allPages = paginator.getAllPagesCount %}
+{% set currentPage = paginator.page %}
+
+{% for page in range(1, allPages) %}
+    <a href="{{ path('user_index_paginated', {"page": page}) }}" class="button {{ currentPage == page ? 'primary' : 'secondary' }}">{{ page }}</a>
+{% endfor %}

@@ -1,0 +1,28 @@
+{
+  "name": "mint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "foundation-sites": "^6.6.3"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomek2855/mint-task-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomek2855/mint-task-2/issues"
+  },
+  "homepage": "https://github.com/tomek2855/mint-task-2#readme"
+}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1>Users</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th class="text-right">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td class="text-right">
+                    {% if (user.disabled) %}
+                        <a href="#" class="button secondary small">Disable</a>
+                    {% else %}
+                        <a href="{{ path('user_disable', {'id': user.id, 'page': paginator.page}) }}" class="button primary small">Disable</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% include 'extensions/paginator.html.twig' with {'paginator': paginator} %}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .button {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    <h1>Please sign in</h1>
+
+    {% if error %}
+        <div class="callout alert">
+            <p>
+                {{ error.messageKey|trans(error.messageData, 'security') }}
+            </p>
+        </div>
+    {% endif %}
+
+    <label for="inputUsername">Username</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button class="button primary" type="submit">
+        Sign in
+    </button>
+
+    <a href="{{ path('app_register') }}" class="button secondary">Sign up</a>
+</form>
+
+{% endblock %}
